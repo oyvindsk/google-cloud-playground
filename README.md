@@ -33,3 +33,25 @@ Load Balancing, for the CE instances:
  - Not HTTP load balancer, tcp/udp (layer 3) l.b.
  - Done by our AE code or by a Gogle Load balancer?
 
+# Google Cloud Platform gotchas:
+
+AE Classic:
+
+- No filesystem
+- No long runing requests
+    - USed to be 30 seconds, 60 now
+- GET or POST to other, how long timeout?
+- No https for custom domains. (2010)
+    - Fixed: https://cloud.google.com/appengine/docs/go/console/using-custom-domains-and-ssl#app_engine_support_for_ssl_certificates
+- ikke alle libraries virker
+ - bare pure python
+ - ikke calle go libs (context etc), men de fleste (?)
+- Slow for CPU intensive tasks (reportedly, makes sense)
+- Priceing
+
+ Datastore:
+ - ? can't return > 1000 records?  (2010)
+ - ? extremly slow writes (2013)
+ - ? Datastore and memcache can fail sometimes (2010)
+
+www.war-worlds.com/blog/2013/06/switched-away-from-app-engine-couldnt-be-happier (2013)
